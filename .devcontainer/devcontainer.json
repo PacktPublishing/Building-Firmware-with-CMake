@@ -1,0 +1,24 @@
+{
+    "name": "CMake Book Environment",
+    "build": {
+      "dockerfile": "../Dockerfile"
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "constexpr",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-vscode.cpptools",
+          "ms-vscode.cmake-tools",
+          "twxs.cmake"
+        ],
+        "settings": {
+          "cmake.generator": "Ninja",
+          "cmake.configureOnOpen": false,
+          "terminal.integrated.defaultProfile.linux": "bash"
+        }
+      }
+    },
+    "postCreateCommand": "cmake --version && arm-none-eabi-gcc --version && renode --version"
+  }
