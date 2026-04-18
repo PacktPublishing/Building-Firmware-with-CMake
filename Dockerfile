@@ -14,8 +14,6 @@ ARG RENODE_VERSION=1.16.1
 ARG RENODE_ARCHIVE=renode-${RENODE_VERSION}.linux-portable.tar.gz
 ARG RENODE_URL=https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/${RENODE_ARCHIVE}
 
-ARG USERNAME=constexpr
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -64,13 +62,6 @@ RUN mkdir -p /opt/renode && \
 
 ENV PATH="/opt/cmake/bin:/opt/arm-gnu-toolchain/bin:/opt/renode:${PATH}"
 
-RUN if ! id -u ${USERNAME} >/dev/null 2>&1; then \
-        useradd -m -s /bin/bash ${USERNAME}; \
-    fi && \
-    mkdir -p /workspace && \
-    chown -R ${USERNAME}:${USERNAME} /workspace
-
 WORKDIR /workspace
-USER ${USERNAME}
 
 CMD ["sleep", "infinity"]
