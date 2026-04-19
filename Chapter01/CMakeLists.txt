@@ -11,3 +11,7 @@ target_include_directories(hello_world
     PRIVATE
         inc
 )
+
+add_custom_command(TARGET hello_world POST_BUILD
+    COMMAND size $<TARGET_FILE:hello_world>
+)
