@@ -23,10 +23,10 @@ add_executable(hello_world
 )
 
 target_include_directories(hello_world PRIVATE 
-  ${CMAKE_SOURCE_DIR}/platform/inc
-  ${CMAKE_SOURCE_DIR}/platform/CMSIS/Device/ST/STM32F0xx/Include
-  ${CMAKE_SOURCE_DIR}/platform/CMSIS/Include
-  ${CMAKE_SOURCE_DIR}/platform/STM32F0xx_HAL_Driver/Inc
+  ${CMAKE_CURRENT_SOURCE_DIR}/platform/inc
+  ${CMAKE_CURRENT_SOURCE_DIR}/platform/CMSIS/Device/ST/STM32F0xx/Include
+  ${CMAKE_CURRENT_SOURCE_DIR}/platform/CMSIS/Include
+  ${CMAKE_CURRENT_SOURCE_DIR}/platform/STM32F0xx_HAL_Driver/Inc
   )
 
 target_compile_options(hello_world PRIVATE 
@@ -42,7 +42,7 @@ target_link_options(hello_world PRIVATE
     --specs=nosys.specs
     -mcpu=cortex-m0 
     -mthumb
-    -T${CMAKE_SOURCE_DIR}/platform/STM32F072C8Tx_FLASH.ld
+    -T${CMAKE_CURRENT_SOURCE_DIR}/platform/STM32F072C8Tx_FLASH.ld
 )
 
 # file(GENERATE
@@ -57,7 +57,7 @@ target_link_options(hello_world PRIVATE
 
 # add_custom_target(
 #   run_in_renode
-#   COMMAND ${RENODE} --console --disable-xwt ${CMAKE_SOURCE_DIR}/renode_scripts/stm32f072.resc -e start 
+#   COMMAND ${RENODE} --console --disable-xwt ${CMAKE_CURRENT_SOURCE_DIR}/renode_scripts/stm32f072.resc -e start 
 #   DEPENDS ${PROJECT_NAME}.elf)
 
 add_custom_target(run_in_renode
