@@ -22,7 +22,6 @@ add_executable(hello_world
     platform/src/platform_hal.c
 )
 
-# global include directories
 target_include_directories(hello_world PRIVATE 
   ${CMAKE_SOURCE_DIR}/platform/inc
   ${CMAKE_SOURCE_DIR}/platform/CMSIS/Device/ST/STM32F0xx/Include
