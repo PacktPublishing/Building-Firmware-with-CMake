@@ -47,3 +47,10 @@ target_link_options(hello_world PRIVATE
     -T${CMAKE_CURRENT_SOURCE_DIR}/platform/STM32F072C8Tx_FLASH.ld
     -Wl,--no-warn-rwx-segments
 )
+
+add_custom_target(run_in_renode
+    COMMAND renode --console --disable-xwt -e "include @${CMAKE_CURRENT_SOURCE_DIR}/run_hello_world.resc"
+    DEPENDS hello_world
+    USES_TERMINAL
+    VERBATIM
+)
