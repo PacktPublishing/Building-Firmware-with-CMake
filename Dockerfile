@@ -43,6 +43,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     screen \
     policykit-1 \
     uml-utilities \
+    protobuf-compiler \
+    python3-protobuf \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/cmake && \
