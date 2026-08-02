@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(hello_world C ASM)
+project(nanopb_code_gen)
 
 add_subdirectory(
     ${CMAKE_CURRENT_LIST_DIR}/../../nanopb

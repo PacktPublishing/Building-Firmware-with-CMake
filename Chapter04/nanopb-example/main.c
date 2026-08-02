@@ -5,7 +5,6 @@
 
 int main()
 {
-    printf("Hiiii 8\r\n");
     /* This is the buffer where we will store our message. */
     uint8_t buffer[128];
     size_t message_length;
@@ -40,8 +39,6 @@ int main()
         }
     }
     
-    printf("Encoding succeed 43\r\n");
-
     /* Now we could transmit the message over network, store it in a file or
      * wrap it to a pigeon's leg.
      */
@@ -49,28 +46,15 @@ int main()
     /* But because we are lazy, we will just decode it immediately. */
     
     {
-printf("Before message init\r\n");
-
-SimpleMessage message = SimpleMessage_init_zero;
-
-printf("After message init\r\n");
-
-pb_istream_t stream;
-
-printf("Before stream init, length = %u\r\n",
-       (unsigned int)message_length);
-
-stream = pb_istream_from_buffer(buffer, message_length);
-
-printf("After stream init\r\n");        
-printf("Hiiii - after pb_istream_from_buffer\r\n");
+        /* Allocate space for the decoded message. */
+        SimpleMessage message = SimpleMessage_init_zero;
+        
+        /* Create a stream that reads from the buffer. */
+        pb_istream_t stream = pb_istream_from_buffer(buffer, message_length);
         
         /* Now we are ready to decode the message. */
         status = pb_decode(&stream, SimpleMessage_fields, &message);
-
         
-        printf("Hiiii - after pb_decode\r\n");
-
         /* Check for errors... */
         if (!status)
         {
@@ -79,11 +63,8 @@ printf("Hiiii - after pb_istream_from_buffer\r\n");
         }
         
         /* Print the data contained in the message. */
-        printf("Your lucky number was %d!\n", message.lucky_number);
+        printf("Your lucky number was %d!\n", (int)message.lucky_number);
     }
     
-    while(1)
-    {
-
-    }
+    return 0;
 }
