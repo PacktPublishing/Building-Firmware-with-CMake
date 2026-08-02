@@ -38,6 +38,13 @@ int main()
             return 1;
         }
     }
+
+    printf("Encoded message:");
+    for (size_t i = 0; i < message_length; ++i)
+    {
+        printf(" %02X", (unsigned int)buffer[i]);
+    }
+    printf("\n");
     
     /* Now we could transmit the message over network, store it in a file or
      * wrap it to a pigeon's leg.
