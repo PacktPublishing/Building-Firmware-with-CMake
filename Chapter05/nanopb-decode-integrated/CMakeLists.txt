@@ -48,7 +48,6 @@ generate_wire_data(
 
 add_executable(nanopb_decode_integrated
     main.c
-    ${WIRE_DATA_HEADER}
 )
 
 target_link_options(nanopb_decode_integrated PRIVATE

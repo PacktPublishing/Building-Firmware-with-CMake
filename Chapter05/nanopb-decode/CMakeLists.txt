@@ -21,13 +21,16 @@ get_filename_component(
     ABSOLUTE
 )
 
-nanopb_generate_cpp(
-    TARGET proto
-    RELPATH ${PROTO_DIR}
-
+set(PROTO_FILES
     ${PROTO_DIR}/device_info.proto
     ${PROTO_DIR}/versions.proto
     ${PROTO_DIR}/calibration_data.proto
+)
+
+nanopb_generate_cpp(
+    TARGET proto
+    RELPATH ${PROTO_DIR}
+    ${PROTO_FILES}
 )
 
 # nanopb exposes stm32f072_arch transitively to generated protocol targets.
