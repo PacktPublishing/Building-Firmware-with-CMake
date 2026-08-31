@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stdio.h>
+#include <stdint.h>
 
 static const uint8_t wire_data[] = {
         0x0a, 0x06, 0x08, 0x01, 0x10, 0x04, 0x18, 0x02, 
