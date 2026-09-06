@@ -85,7 +85,7 @@ add_custom_command(
 )
 
 file(GENERATE
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/run_hello_world.resc
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/run_cpp_u_test_nanopb-$<CONFIG>.resc
     CONTENT
         "mach create
          machine LoadPlatformDescription @platforms/boards/stm32f072b_discovery.repl
@@ -95,7 +95,10 @@ file(GENERATE
 )
 
 add_custom_target(run_in_renode
-    COMMAND renode --console --disable-xwt -e "include @${CMAKE_CURRENT_BINARY_DIR}/run_hello_world.resc"
+    COMMAND renode
+        --console
+        --disable-xwt
+        -e "include @${CMAKE_CURRENT_BINARY_DIR}/run_cpp_u_test_nanopb-$<CONFIG>.resc"
     DEPENDS cpp_u_test_nanopb
     USES_TERMINAL
     VERBATIM

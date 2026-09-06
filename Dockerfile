@@ -10,9 +10,9 @@ ARG ARM_GNU_VERSION=14.3.rel1
 ARG ARM_GNU_ARCHIVE=arm-gnu-toolchain-${ARM_GNU_VERSION}-x86_64-arm-none-eabi.tar.xz
 ARG ARM_GNU_URL=https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GNU_VERSION}/binrel/${ARM_GNU_ARCHIVE}
 
-ARG RENODE_VERSION=1.16.1
-ARG RENODE_ARCHIVE=renode-${RENODE_VERSION}.linux-portable.tar.gz
-ARG RENODE_URL=https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/${RENODE_ARCHIVE}
+ARG RENODE_VERSION=1.16.1+20260904git63d4e2dd5
+ENV RENODE_ARCHIVE=renode-${RENODE_VERSION}.linux-portable.tar.gz
+ENV RENODE_URL=https://builds.renode.io/${RENODE_ARCHIVE}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -62,6 +62,11 @@ RUN mkdir -p /opt/renode && \
     tar -xzf /tmp/${RENODE_ARCHIVE} -C /opt/renode --strip-components=1 && \
     rm -f /tmp/${RENODE_ARCHIVE}
 
+RUN python3 -m pip install \
+    --no-cache-dir \
+    --break-system-packages \
+    -r /opt/renode/tests/requirements.txt
+    
 ENV PATH="/opt/cmake/bin:/opt/arm-gnu-toolchain/bin:/opt/renode:${PATH}"
 
 WORKDIR /workspace
