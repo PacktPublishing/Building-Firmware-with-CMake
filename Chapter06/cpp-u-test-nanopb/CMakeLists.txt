@@ -61,7 +61,7 @@ add_executable(cpp_u_test_nanopb
 )
 
 target_link_options(cpp_u_test_nanopb PRIVATE
-    -T${PLATFORM_DIR}/STM32F072C8Tx_FLASH.ld
+    -T${PLATFORM_DIR}/STM32F072RBTx_FLASH.ld
     -Wl,--gc-sections
     --specs=nosys.specs
     --specs=nano.specs
