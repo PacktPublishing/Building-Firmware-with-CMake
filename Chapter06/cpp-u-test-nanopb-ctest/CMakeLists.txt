@@ -111,3 +111,25 @@ add_custom_target(run_in_renode
     USES_TERMINAL
     VERBATIM
 )
+
+enable_testing()
+
+set(RENODE_TEST_RESULTS_DIR
+    ${CMAKE_CURRENT_BINARY_DIR}/test-results
+)
+
+file(MAKE_DIRECTORY
+    ${RENODE_TEST_RESULTS_DIR}
+)
+
+add_test(
+    NAME nanopb_firmware
+    COMMAND renode-test
+        --variable ELF:$<TARGET_FILE:cpp_u_test_nanopb>
+        ${CMAKE_CURRENT_SOURCE_DIR}/nanopb_firmware.robot
+)
+
+set_tests_properties(nanopb_firmware PROPERTIES
+    WORKING_DIRECTORY ${RENODE_TEST_RESULTS_DIR}
+    TIMEOUT 20
+)
