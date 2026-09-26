@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+message FirmwareVersion {
+    uint32 major = 1;
+    uint32 minor = 2;
+    uint32 patch = 3;
+}
+
+message HardwareVersion {
+    uint32 major = 1;
+    uint32 minor = 2;
+}
