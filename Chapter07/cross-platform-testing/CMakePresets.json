@@ -1,0 +1,52 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "arm",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/arm",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi.cmake",
+            "cacheVariables": {
+                "CMAKE_CROSSCOMPILING_EMULATOR":
+                    "${sourceDir}/run-renode-test.sh;${sourceDir}/firmware_tests.robot"
+            }
+        },
+        {
+            "name": "x86",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/x86",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-linux-gnu.cmake"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "arm",
+            "configurePreset": "arm"
+        },
+        {
+            "name": "x86",
+            "configurePreset": "x86"
+        }
+    ],
+    "testPresets": [
+    {
+        "name": "x86",
+        "configurePreset": "x86",
+        "output": {
+            "outputOnFailure": true
+        }
+    },
+    {
+        "name": "arm",
+        "configurePreset": "arm",
+        "output": {
+            "outputOnFailure": true
+        }
+    }
+]
+}

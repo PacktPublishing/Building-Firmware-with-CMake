@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(architecture_flags_in_toolchain C CXX ASM)
+project(cross_platform_testing C CXX ASM)
 
 add_compile_options(
     $<$<COMPILE_LANGUAGE:C,CXX>:-ffunction-sections>
@@ -50,29 +50,45 @@ generate_wire_data(
     PROTO_FILES ${PROTO_FILES}
 )
 
-add_executable(architecture_flags_in_toolchain
+add_executable(cross_platform_testing
     main.cpp
 )
 
-target_link_options(architecture_flags_in_toolchain PRIVATE
+target_link_options(cross_platform_testing PRIVATE
     -Wl,--gc-sections
 )
 
-target_link_libraries(architecture_flags_in_toolchain PRIVATE
+target_link_libraries(cross_platform_testing PRIVATE
     proto
     wire_data
     CppUTest::CppUTest
 )
 
 if(CMAKE_CROSSCOMPILING)
-    target_link_options(architecture_flags_in_toolchain PRIVATE
+    target_link_options(cross_platform_testing PRIVATE
         -T${PLATFORM_DIR}/STM32F072RBTx_FLASH.ld
         --specs=rdimon.specs
         --specs=nano.specs
     )
 
-    target_link_libraries(architecture_flags_in_toolchain PRIVATE
+    target_link_libraries(cross_platform_testing PRIVATE
         stm32f072_platform
         stm32f072_runtime
+    )
+endif()
+
+enable_testing()
+
+add_test(
+    NAME cross_platform_tests
+    COMMAND cross_platform_testing
+)
+
+if(CMAKE_CROSSCOMPILING)
+    target_sources(cross_platform_testing PRIVATE
+        uart_configuration_test.cpp
+    )
+    target_link_libraries(cross_platform_testing PRIVATE
+        stm32f0_hal
     )
 endif()

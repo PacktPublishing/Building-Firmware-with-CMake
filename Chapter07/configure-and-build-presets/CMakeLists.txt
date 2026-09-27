@@ -67,7 +67,7 @@ target_link_libraries(configure_and_build_presets PRIVATE
 if(CMAKE_CROSSCOMPILING)
     target_link_options(configure_and_build_presets PRIVATE
         -T${PLATFORM_DIR}/STM32F072RBTx_FLASH.ld
-        --specs=nosys.specs
+        --specs=rdimon.specs
         --specs=nano.specs
     )
 

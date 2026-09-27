@@ -73,7 +73,7 @@ target_link_libraries(unified_host_and_arm PRIVATE
 if(CMAKE_CROSSCOMPILING)
     target_link_options(unified_host_and_arm PRIVATE
         -T${PLATFORM_DIR}/STM32F072RBTx_FLASH.ld
-        --specs=nosys.specs
+        --specs=rdimon.specs
         --specs=nano.specs
     )
 
