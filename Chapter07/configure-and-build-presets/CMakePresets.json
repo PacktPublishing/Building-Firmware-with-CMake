@@ -10,13 +10,19 @@
             "name": "arm",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build/arm",
-            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi.cmake"
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         },
         {
             "name": "x86",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build/x86",
-            "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-linux-gnu.cmake"
+            "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-linux-gnu.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [

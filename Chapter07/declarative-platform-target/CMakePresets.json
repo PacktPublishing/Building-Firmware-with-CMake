@@ -14,7 +14,8 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_CROSSCOMPILING_EMULATOR":
-                    "${sourceDir}/run-renode-test.sh;${sourceDir}/firmware_tests.robot"
+                    "${sourceDir}/run-renode-test.sh;${sourceDir}/firmware_tests.robot",
+                "PLATFORM": "stm32f072"     
             }
         },
         {
@@ -23,7 +24,8 @@
             "binaryDir": "${sourceDir}/build/x86",
             "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-linux-gnu.cmake",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "PLATFORM": "x86"     
             }
         }
     ],
@@ -67,7 +69,7 @@
         "steps": [
             { "type": "configure", "name": "arm" },
             { "type": "build", "name": "arm" },
-            { "type": "test", "name": "arm"}
+            { "type": "test", "name": "arm" }
         ]
     }
     ]

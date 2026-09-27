@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(cross_platform_testing C CXX ASM)
+project(declarative_platform C CXX ASM)
 
 add_compile_options(
     $<$<COMPILE_LANGUAGE:C,CXX>:-ffunction-sections>
@@ -9,10 +9,7 @@ add_compile_options(
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
 )
 
-if(CMAKE_CROSSCOMPILING)
-    set(PLATFORM_DIR ${CMAKE_CURRENT_SOURCE_DIR}/platform)
-    add_subdirectory(${PLATFORM_DIR})
-endif()
+add_subdirectory("platform_${PLATFORM}")
 
 add_subdirectory(
     ${CMAKE_CURRENT_LIST_DIR}/../../CppUTest
@@ -50,45 +47,24 @@ generate_wire_data(
     PROTO_FILES ${PROTO_FILES}
 )
 
-add_executable(cross_platform_testing
+add_executable(declarative_platform
     main.cpp
 )
 
-target_link_options(cross_platform_testing PRIVATE
+target_link_options(declarative_platform PRIVATE
     -Wl,--gc-sections
 )
 
-target_link_libraries(cross_platform_testing PRIVATE
+target_link_libraries(declarative_platform PRIVATE
     proto
     wire_data
     CppUTest::CppUTest
+    platform
 )
-
-if(CMAKE_CROSSCOMPILING)
-    target_link_options(cross_platform_testing PRIVATE
-        -T${PLATFORM_DIR}/STM32F072RBTx_FLASH.ld
-        --specs=rdimon.specs
-        --specs=nano.specs
-    )
-
-    target_link_libraries(cross_platform_testing PRIVATE
-        stm32f072_platform
-        stm32f072_runtime
-    )
-endif()
 
 enable_testing()
 
 add_test(
     NAME cross_platform_tests
-    COMMAND cross_platform_testing
+    COMMAND declarative_platform
 )
-
-if(CMAKE_CROSSCOMPILING)
-    target_sources(cross_platform_testing PRIVATE
-        uart_configuration_test.cpp
-    )
-    target_link_libraries(cross_platform_testing PRIVATE
-        stm32f0_hal
-    )
-endif()
