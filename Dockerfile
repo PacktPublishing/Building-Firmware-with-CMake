@@ -6,12 +6,7 @@ ARG TARGETARCH
 
 ARG CMAKE_VERSION=3.31.11
 ARG ARM_GNU_VERSION=14.3.rel1
-ARG ARM_GNU_ARCHIVE=arm-gnu-toolchain-${ARM_GNU_VERSION}-x86_64-arm-none-eabi.tar.xz
-ARG ARM_GNU_URL=https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GNU_VERSION}/binrel/${ARM_GNU_ARCHIVE}
-
 ARG RENODE_VERSION=1.16.1+20260904git63d4e2dd5
-ENV RENODE_ARCHIVE=renode-${RENODE_VERSION}.linux-portable.tar.gz
-ENV RENODE_URL=https://builds.renode.io/${RENODE_ARCHIVE}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -24,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
     python3-venv \
+    python3-dev \
     gdb \
     wget \
     curl \
@@ -49,36 +45,37 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN set -eux; \
     case "${TARGETARCH}" in \
-    amd64) CMAKE_ARCH=x86_64 ;; \
-    arm64) CMAKE_ARCH=aarch64 ;; \
+    amd64) ARCH=x86_64; RENODE_SUFFIX="" ;; \
+    arm64) ARCH=aarch64; RENODE_SUFFIX="-arm64" ;; \
     *) echo "Unsupported architecture: ${TARGETARCH}" >&2; exit 1 ;; \
     esac; \
-    CMAKE_ARCHIVE="cmake-${CMAKE_VERSION}-linux-${CMAKE_ARCH}.tar.gz"; \
+    CMAKE_ARCHIVE="cmake-${CMAKE_VERSION}-linux-${ARCH}.tar.gz"; \
+    ARM_GNU_ARCHIVE="arm-gnu-toolchain-${ARM_GNU_VERSION}-${ARCH}-arm-none-eabi.tar.xz"; \
+    RENODE_ARCHIVE="renode-${RENODE_VERSION}.linux${RENODE_SUFFIX}-portable.tar.gz"; \
+    { \
+    echo "export CMAKE_ARCHIVE=${CMAKE_ARCHIVE}"; \
+    echo "export CMAKE_URL=https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/${CMAKE_ARCHIVE}"; \
+    echo "export ARM_GNU_ARCHIVE=${ARM_GNU_ARCHIVE}"; \
+    echo "export ARM_GNU_URL=https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GNU_VERSION}/binrel/${ARM_GNU_ARCHIVE}"; \
+    echo "export RENODE_ARCHIVE=${RENODE_ARCHIVE}"; \
+    echo "export RENODE_URL=https://builds.renode.io/${RENODE_ARCHIVE}"; \
+    } > /etc/build-arch.env
+
+RUN . /etc/build-arch.env && \
     mkdir -p /opt/cmake && \
-    wget -qO /tmp/${CMAKE_ARCHIVE} "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/${CMAKE_ARCHIVE}" && \
+    wget -qO /tmp/${CMAKE_ARCHIVE} "${CMAKE_URL}" && \
     tar -xzf /tmp/${CMAKE_ARCHIVE} -C /opt/cmake --strip-components=1 && \
     rm -f /tmp/${CMAKE_ARCHIVE}
 
-RUN set -eux; \
-    case "${TARGETARCH}" in \
-    amd64) HOST_ARCH=x86_64 ;; \
-    arm64) HOST_ARCH=aarch64 ;; \
-    *) echo "Unsupported architecture: ${TARGETARCH}" >&2; exit 1 ;; \
-    esac; \
-    ARM_GNU_ARCHIVE="arm-gnu-toolchain-${ARM_GNU_VERSION}-${HOST_ARCH}-arm-none-eabi.tar.xz"; \
+RUN . /etc/build-arch.env && \
     mkdir -p /opt/arm-gnu-toolchain && \
-    wget -qO /tmp/${ARM_GNU_ARCHIVE} "https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GNU_VERSION}/binrel/${ARM_GNU_ARCHIVE}" && \
+    wget -qO /tmp/${ARM_GNU_ARCHIVE} "${ARM_GNU_URL}" && \
     tar -xJf /tmp/${ARM_GNU_ARCHIVE} -C /opt/arm-gnu-toolchain --strip-components=1 && \
     rm -f /tmp/${ARM_GNU_ARCHIVE}
 
-RUN set -eux; \
-    case "${TARGETARCH}" in \
-    amd64) RENODE_ARCHIVE="renode-${RENODE_VERSION}.linux-portable.tar.gz" ;; \
-    arm64) RENODE_ARCHIVE="renode-${RENODE_VERSION}.linux-arm64-portable-dotnet.tar.gz" ;; \
-    *) echo "Unsupported architecture: ${TARGETARCH}" >&2; exit 1 ;; \
-    esac; \
+RUN . /etc/build-arch.env && \
     mkdir -p /opt/renode && \
-    wget -qO /tmp/${RENODE_ARCHIVE} "https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/${RENODE_ARCHIVE}" && \
+    wget -qO /tmp/${RENODE_ARCHIVE} "${RENODE_URL}" && \
     tar -xzf /tmp/${RENODE_ARCHIVE} -C /opt/renode --strip-components=1 && \
     rm -f /tmp/${RENODE_ARCHIVE}
 
