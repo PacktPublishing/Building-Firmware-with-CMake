@@ -1,0 +1,76 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "arm",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/arm",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CROSSCOMPILING_EMULATOR":
+                    "${sourceDir}/run-renode-test.sh;${sourceDir}/firmware_tests.robot",
+                "PLATFORM": "stm32f072"     
+            }
+        },
+        {
+            "name": "x86",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/x86",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-linux-gnu.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "PLATFORM": "x86"     
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "arm",
+            "configurePreset": "arm"
+        },
+        {
+            "name": "x86",
+            "configurePreset": "x86"
+        }
+    ],
+    "testPresets": [
+    {
+        "name": "x86",
+        "configurePreset": "x86",
+        "output": {
+            "verbosity": "verbose"
+        }
+    },
+    {
+        "name": "arm",
+        "configurePreset": "arm",
+        "output": {
+            "verbosity": "verbose"
+        }
+    }
+    ],
+    "workflowPresets": [
+    {
+        "name": "x86",
+        "steps": [
+            { "type": "configure", "name": "x86" },
+            { "type": "build", "name": "x86" },
+            { "type": "test", "name": "x86" }
+        ]
+    },
+    {
+        "name": "arm",
+        "steps": [
+            { "type": "configure", "name": "arm" },
+            { "type": "build", "name": "arm" },
+            { "type": "test", "name": "arm" }
+        ]
+    }
+    ]
+}

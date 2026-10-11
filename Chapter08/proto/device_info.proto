@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "versions.proto";
+import "calibration_data.proto";
+
+message DeviceInfo {
+    FirmwareVersion firmware_version = 1;
+    HardwareVersion hardware_version = 2;
+    CalibrationData calibration_data = 3;
+}
