@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(declarative_platform C CXX ASM)
+project(pinned_toolchain_demo
+    VERSION 1.0.0
+    LANGUAGES C CXX ASM
+)
 
 add_compile_options(
     $<$<COMPILE_LANGUAGE:C,CXX>:-ffunction-sections>
@@ -47,15 +50,18 @@ generate_wire_data(
     PROTO_FILES ${PROTO_FILES}
 )
 
-add_executable(declarative_platform
+add_executable(pinned_toolchain_demo
     main.cpp
 )
 
-target_link_options(declarative_platform PRIVATE
+set(map_file "${CMAKE_CURRENT_BINARY_DIR}/pinned_toolchain_demo.map")
+
+target_link_options(pinned_toolchain_demo PRIVATE
     -Wl,--gc-sections
+    "LINKER:-Map,${map_file}"
 )
 
-target_link_libraries(declarative_platform PRIVATE
+target_link_libraries(pinned_toolchain_demo PRIVATE
     proto
     wire_data
     CppUTest::CppUTest
@@ -66,5 +72,62 @@ enable_testing()
 
 add_test(
     NAME cross_platform_tests
-    COMMAND declarative_platform
+    COMMAND pinned_toolchain_demo
 )
+
+find_package(Git REQUIRED)
+
+execute_process(
+    COMMAND "${GIT_EXECUTABLE}" rev-parse HEAD
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    OUTPUT_VARIABLE source_commit
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    COMMAND_ERROR_IS_FATAL ANY
+)
+
+execute_process(
+    COMMAND "${CMAKE_MAKE_PROGRAM}" --version
+    OUTPUT_VARIABLE ninja_version
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    COMMAND_ERROR_IS_FATAL ANY
+)
+
+set(build_info "${CMAKE_CURRENT_BINARY_DIR}/build-info.txt")
+
+file(WRITE "${build_info}"
+    "Source commit: ${source_commit}\n"
+    "Compiler version: ${CMAKE_C_COMPILER_VERSION}\n"
+    "CMake version: ${CMAKE_VERSION}\n"
+    "Ninja version: ${ninja_version}\n"
+)
+
+install(FILES "${build_info}"
+    DESTINATION metadata
+)
+
+install(FILES "$<TARGET_FILE:pinned_toolchain_demo>"
+    DESTINATION firmware
+    RENAME pinned_toolchain_demo.elf
+)
+
+install(FILES "${map_file}"
+    DESTINATION firmware
+)
+
+install(FILES ${PROTO_FILES}
+    DESTINATION proto
+)
+
+if(DEFINED RELEASE_COMMAND_LOG)
+    install(FILES "${RELEASE_COMMAND_LOG}"
+        DESTINATION metadata
+    )
+endif()
+
+string(SUBSTRING "${source_commit}" 0 8 source_commit_short)
+
+set(CPACK_PACKAGE_FILE_NAME
+    "${PROJECT_NAME}-${PROJECT_VERSION}-${source_commit_short}-${PLATFORM}"
+)
+
+include(CPack)
