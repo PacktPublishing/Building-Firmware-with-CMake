@@ -118,8 +118,8 @@ install(FILES ${PROTO_FILES}
     DESTINATION proto
 )
 
-if(DEFINED RELEASE_COMMAND_LOG)
-    install(FILES "${RELEASE_COMMAND_LOG}"
+if(NOT "$ENV{RELEASE_COMMAND_LOG}" STREQUAL "")
+    install(FILES "$ENV{RELEASE_COMMAND_LOG}"
         DESTINATION metadata
     )
 endif()

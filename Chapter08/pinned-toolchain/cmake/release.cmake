@@ -36,12 +36,14 @@ function(run_step name)
     endif()
 endfunction()
 
+set(ENV{RELEASE_COMMAND_LOG} "${command_log}")
+
 run_step("Bootstrap toolchain"
     "${CMAKE_COMMAND}" -P "${source_dir}/cmake/setup-arm-gcc.cmake"
 )
 
 run_step("Release workflow"
-    "${CMAKE_COMMAND}" --workflow --preset arm-release
+    "${CMAKE_COMMAND}" --workflow --preset arm-release --fresh
 )
 
 message(STATUS "Release completed. Commands recorded in: ${command_log}")

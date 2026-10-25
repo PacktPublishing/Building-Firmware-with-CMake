@@ -18,7 +18,7 @@
                 "PLATFORM": "stm32f072"     
             },
             "environment": {
-                "ARM_GCC_ROOT": null
+                "ARM_GCC_ROOT": ""
             }
         },
         {
@@ -26,14 +26,8 @@
             "inherits": "arm",
             "binaryDir": "${sourceDir}/build/arm-pinned",
             "environment": {
-                "ARM_GCC_ROOT": "$env{HOME}/.cache/cmake-toolchains/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi"
-            },
-            "cacheVariables": {
-                "RELEASE_COMMAND_LOG": {
-                    "type": "FILEPATH",
-                    "value": "${sourceDir}/build/release-commands.txt"
+                "ARM_GCC_ROOT": "$env{HOME}/.cache/cmake-toolchains/arm-gnu-toolchain-14.2.rel1-arm-none-eabi"
             }
-        }
         },
         {
             "name": "x86",

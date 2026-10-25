@@ -1,7 +1,7 @@
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
-if(DEFINED ENV{ARM_GCC_ROOT})
+if(NOT "$ENV{ARM_GCC_ROOT}" STREQUAL "")
     set(prefix "$ENV{ARM_GCC_ROOT}/bin/arm-none-eabi-")
     if(NOT EXISTS "${prefix}gcc")
         message(FATAL_ERROR

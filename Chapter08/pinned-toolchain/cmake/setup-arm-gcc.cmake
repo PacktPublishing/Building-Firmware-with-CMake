@@ -21,7 +21,10 @@ set(root "${cache}/${name}")
 set(archive "${cache}/${name}.tar.xz")
 set(url "https://developer.arm.com/-/media/Files/downloads/gnu/${version}/binrel/${name}.tar.xz")
 
+set(link "${cache}/arm-gnu-toolchain-${version}-arm-none-eabi")
+
 if(EXISTS "${root}/.complete" AND EXISTS "${root}/bin/arm-none-eabi-gcc")
+    file(CREATE_LINK "${name}" "${link}" SYMBOLIC)
     message(STATUS "Toolchain already installed: ${root}")
     return()
 endif()
@@ -32,13 +35,7 @@ message(STATUS "Downloading ${name}")
 file(DOWNLOAD "${url}" "${archive}"
     EXPECTED_HASH "SHA256=${sha256}"
     TLS_VERIFY ON
-    STATUS download_status
 )
-list(GET download_status 0 download_result)
-if(NOT download_result EQUAL 0)
-    file(REMOVE "${archive}")
-    message(FATAL_ERROR "Toolchain download failed: ${download_status}")
-endif()
 
 file(REMOVE_RECURSE "${root}")
 file(ARCHIVE_EXTRACT INPUT "${archive}" DESTINATION "${cache}")
@@ -48,4 +45,5 @@ if(NOT EXISTS "${root}/bin/arm-none-eabi-gcc")
     message(FATAL_ERROR "Compiler missing after extraction: ${root}")
 endif()
 file(WRITE "${root}/.complete" "${sha256}\n")
+file(CREATE_LINK "${name}" "${link}" SYMBOLIC)
 message(STATUS "Toolchain installed: ${root}")
