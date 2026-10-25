@@ -42,8 +42,12 @@ run_step("Bootstrap toolchain"
     "${CMAKE_COMMAND}" -P "${source_dir}/cmake/setup-arm-gcc.cmake"
 )
 
+if(NOT DEFINED WORKFLOW_PRESET)
+    set(WORKFLOW_PRESET "stm32f072-release")
+endif()
+
 run_step("Release workflow"
-    "${CMAKE_COMMAND}" --workflow --preset stm32f072-release --fresh
+    "${CMAKE_COMMAND}" --workflow --preset "${WORKFLOW_PRESET}" --fresh
 )
 
 message(STATUS "Release completed. Commands recorded in: ${command_log}")
