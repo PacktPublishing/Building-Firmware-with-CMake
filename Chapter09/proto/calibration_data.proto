@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message CalibrationData {
+    int32 offset = 1;
+    float gain = 2;
+}
