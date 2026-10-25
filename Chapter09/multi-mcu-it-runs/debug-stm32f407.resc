@@ -1,0 +1,20 @@
+# Place this script in Chapter09/multi-mcu-it-builds.
+# Load the same executable as CTest, then start it manually in the Monitor.
+
+mach create "STM32F407-debug"
+machine LoadPlatformDescription @platforms/boards/stm32f4_discovery.repl
+machine LoadPlatformDescriptionFromString "semihosting: CPU.SemihostingHandler @ cpu"
+machine LoadPlatformDescriptionFromString "semihostingUart: UART.SemihostingUart @ semihosting"
+sysbus LoadELF $ORIGIN/build/stm32f407/multi_mcu
+
+logFile $ORIGIN/stm32f407-renode.log
+logLevel 0
+sysbus.usart2 CreateFileBackend $ORIGIN/stm32f407-uart.log true
+
+# Trace startup and fault handlers without logging every HAL_GetTick poll.
+sysbus.cpu LogFunctionNames true "Reset_Handler SystemInit main PlatformHalInit SystemClock_Config MX_ HAL_Init HAL_UART_Init HAL_UART_MspInit HAL_MspInit Error_Handler HardFault_Handler MemManage_Handler BusFault_Handler UsageFault_Handler Default_Handler _write _exit"
+
+# Optional GDB connection; opening the server does not start execution.
+machine StartGdbServer 3333
+
+# Deliberately leave emulation paused. Type 'start' in the Monitor.

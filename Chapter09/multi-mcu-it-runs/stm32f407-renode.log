@@ -1,0 +1,403 @@
+[17:12:05.8062]  [INFO] STM32F407-debug: CPUs: ["STM32F407-debug.cpu"] were added to a new GDB server created on port :3333
+[17:12:05.8062]  [INFO] STM32F407-debug: GDB server with all CPUs started on port :3333
+[17:12:11.0208]  [INFO] cpu: Guessing VectorTableOffset value to be 0x8000000.
+[17:12:11.0450]  [INFO] cpu: Setting initial values: PC = 0x8000CFD, SP = 0x20020000.
+[17:12:11.0496]  [INFO] STM32F407-debug: Machine started.
+[17:12:11.1152]  [INFO] cpu: Entering function Reset_Handler (entry) at 0x8000CFC
+[17:12:11.1154]  [INFO] cpu: Entering function SystemInit (entry) at 0x800C6C0
+[17:12:11.1156]  [INFO] cpu: Entering function Reset_Handler at 0x8000D04
+[17:12:11.1163]  [INFO] cpu: Entering function Reset_Handler at 0x8000D14
+[17:12:11.1164]  [INFO] cpu: Entering function Reset_Handler at 0x8000D0E
+[17:12:11.1164]  [INFO] cpu: Entering function Reset_Handler at 0x8000D0E (83)
+[17:12:11.1199]  [INFO] cpu: Entering function Reset_Handler at 0x8000D1A
+[17:12:11.1199]  [INFO] cpu: Entering function Reset_Handler at 0x8000D26
+[17:12:11.1199]  [INFO] cpu: Entering function Reset_Handler at 0x8000D22
+[17:12:11.1199]  [INFO] cpu: Entering function Reset_Handler at 0x8000D22 (818)
+[17:12:11.1227]  [INFO] cpu: Entering function Reset_Handler at 0x8000D2A
+[17:12:11.1264]  [INFO] cpu: Entering function Reset_Handler at 0x8000D2E
+[17:12:11.1265]  [INFO] cpu: Entering function PlatformHalInit (entry) at 0x800C6C4
+[17:12:11.1265]  [INFO] cpu: Entering function HAL_Init (entry) at 0x800C79C
+[17:12:11.1511]  [WARNING] flash_controller: Unhandled write to offset 0x0. Unhandled bits: [9] when writing value 0x200. Tags: ICEN (0x1).
+[17:12:11.1536]  [WARNING] flash_controller: Unhandled write to offset 0x0. Unhandled bits: [10] when writing value 0x400. Tags: DCEN (0x1).
+[17:12:11.1547]  [WARNING] flash_controller: Unhandled write to offset 0x0. Unhandled bits: [8] when writing value 0x100. Tags: PRFTEN (0x1).
+[17:12:11.1680]  [INFO] cpu: Entering function HAL_Init at 0x800C7BE
+[17:12:11.1681]  [INFO] cpu: Entering function HAL_InitTick (entry) at 0x800C754
+[17:12:11.1702]  [DEBUG] nvic: Priority 0x0 set for interrupt PendSV.
+[17:12:11.1703]  [DEBUG] nvic: Priority 0xF0 set for interrupt SysTick.
+[17:12:11.1703]  [DEBUG] nvic: Priority of IRQs 14, 15 set to 0x0, 0xF0 respectively.
+[17:12:11.1775]  [INFO] cpu: Entering function HAL_InitTick at 0x800C770
+[17:12:11.1776]  [INFO] cpu: Entering function HAL_InitTick at 0x800C772
+[17:12:11.1776]  [INFO] cpu: Entering function HAL_InitTick at 0x800C77A
+[17:12:11.1778]  [DEBUG] nvic: Priority 0x0 set for interrupt PendSV.
+[17:12:11.1778]  [DEBUG] nvic: Priority 0xF0 set for interrupt SysTick.
+[17:12:11.1779]  [DEBUG] nvic: Priority of IRQs 14, 15 set to 0x0, 0xF0 respectively.
+[17:12:11.1779]  [INFO] cpu: Entering function HAL_InitTick at 0x800C788
+[17:12:11.1779]  [INFO] cpu: Entering function HAL_Init at 0x800C7C4
+[17:12:11.1779]  [INFO] cpu: Entering function HAL_MspInit (entry) at 0x800C750
+[17:12:11.1780]  [INFO] cpu: Entering function HAL_Init at 0x800C7C8
+[17:12:11.1780]  [INFO] cpu: Entering function PlatformHalInit at 0x800C6CA
+[17:12:11.1780]  [INFO] cpu: Entering function HAL_UART_Init (entry) at 0x800C8AC
+[17:12:11.1781]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C8B2
+[17:12:11.1781]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C9B6
+[17:12:11.1781]  [INFO] cpu: Entering function HAL_UART_MspInit (entry) at 0x800C8A8
+[17:12:11.1781]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C9BE
+[17:12:11.1782]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C8C2
+[17:12:11.1796]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C90C
+[17:12:11.1796]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C912
+[17:12:11.1799]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C916
+[17:12:11.1799]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C928
+[17:12:11.1802]  [INFO] cpu: Entering function HAL_UART_Init at 0x800C930
+[17:12:11.1829]  [INFO] cpu: Entering function PlatformHalInit at 0x800C6EE
+[17:12:11.1829]  [INFO] cpu: Entering function PlatformHalInit at 0x800C6F0
+[17:12:11.1836]  [INFO] cpu: Entering function Reset_Handler at 0x8000D32
+[17:12:11.1837]  [INFO] cpu: Entering function main (entry) at 0x8000C7C
+[17:12:11.1933]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1934]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1934]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1934]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1951]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1952]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1952]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1952]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1955]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1955]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1955]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1955]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1959]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1960]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1960]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1960]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1961]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1961]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1961]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1961]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1962]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1962]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1963]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1963]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1964]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1964]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1964]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1964]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1965]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1966]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1966]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1966]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1967]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1967]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1967]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1967]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1968]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1969]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1969]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1969]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1970]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1970]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1970]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1970]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1971]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1972]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1972]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1972]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1973]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1973]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1973]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1973]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1975]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1975]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1975]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1975]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1976]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1976]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1976]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1976]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1978]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1978]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1978]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1978]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1979]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1979]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1979]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1979]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1981]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1981]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1981]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1982]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1983]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1983]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1983]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1983]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1985]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1985]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1985]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1985]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1986]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1986]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1986]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1986]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1988]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1988]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1988]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1988]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1990]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1990]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1990]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1990]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1992]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1992]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1992]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1992]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1993]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1994]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1994]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1994]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1995]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1995]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1995]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1995]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.1997]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.1997]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.1997]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.1997]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.1999]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.1999]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.1999]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.1999]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2001]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2001]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2001]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2001]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2002]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2002]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2003]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2003]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2004]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2004]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2004]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2004]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2006]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2006]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2006]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2007]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2008]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2008]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2008]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2008]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2010]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2010]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2010]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2010]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2012]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2012]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2012]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2012]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2013]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2014]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2014]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2014]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2015]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2015]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2015]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2015]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2017]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2017]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2017]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2017]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2019]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2019]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2019]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2019]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2020]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2020]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2020]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2020]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2022]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2022]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2022]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2022]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2023]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2023]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2024]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2024]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2025]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2025]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2025]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2025]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2027]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2027]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2027]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2027]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2029]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2029]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2029]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2029]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2030]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2031]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2031]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2031]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2032]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2032]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2032]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2032]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2034]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2034]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2034]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2034]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2036]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2036]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2036]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2036]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2037]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2037]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2037]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2038]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2039]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2039]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2040]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2040]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2041]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2041]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2041]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2041]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2043]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2043]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2043]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2043]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2045]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2045]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2045]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2045]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2046]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2047]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2047]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2047]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2048]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2048]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2048]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2048]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2050]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2050]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2050]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2050]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2052]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2052]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2052]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2052]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2053]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2053]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2053]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2054]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2055]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2055]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2055]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2055]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2057]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2057]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2057]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2057]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2059]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2059]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2059]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2059]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2062]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2062]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2062]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2062]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2064]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2064]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2064]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2064]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2066]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2066]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2066]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2066]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2068]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2068]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2068]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2068]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2069]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2070]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2070]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2070]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2071]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2071]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2071]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2071]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2073]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2073]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2073]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2073]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2074]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2074]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2074]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2074]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2099]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2099]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2099]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2099]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2101]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2101]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2101]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2101]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2106]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2106]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2106]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2106]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2108]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2108]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2108]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2108]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2119]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2119]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2119]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2119]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2121]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2121]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2121]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2121]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2123]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2123]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2123]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2123]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2125]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2125]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2125]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2125]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2127]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2127]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2127]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2127]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2129]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2129]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2129]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2129]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2130]  [INFO] cpu: Entering function _write_r (entry) at 0x800F080
+[17:12:11.2130]  [INFO] cpu: Entering function _write (entry) at 0x800C714
+[17:12:11.2131]  [INFO] cpu: Entering function _write at 0x800C71A
+[17:12:11.2131]  [INFO] cpu: Entering function _write at 0x800C720
+[17:12:11.2132]  [INFO] cpu: Entering function _write at 0x800C72C
+[17:12:11.2132]  [INFO] cpu: Entering function _write at 0x800C72E
+[17:12:11.2132]  [INFO] cpu: Entering function _write_r at 0x800F094
+[17:12:11.2132]  [INFO] cpu: Entering function _write_r at 0x800F09E
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick.
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2572)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2230)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2257)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2252)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2252)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2252)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2251)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2252)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2260)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2254)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2254)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2244)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2248)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2253)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2251)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2253)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2252)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2251)
+[17:12:11.2143]  [DEBUG] nvic: Set pending IRQ SysTick. (2253)
+[17:12:21.1276]  [INFO] STM32F407-debug: Machine paused.
+[17:12:21.1943]  [INFO] STM32F407-debug: Disposed.

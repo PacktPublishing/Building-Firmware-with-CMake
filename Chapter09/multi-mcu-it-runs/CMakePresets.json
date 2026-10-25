@@ -1,0 +1,154 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "stm32f072",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/stm32f072",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CROSSCOMPILING_EMULATOR":
+                    "${sourceDir}/run-renode-test.sh;${sourceDir}/platform_stm32f072/firmware_tests.robot",
+                "PLATFORM": "stm32f072",
+                "ARM_CPU": "cortex-m0" 
+            },
+            "environment": {
+                "ARM_GCC_ROOT": ""
+            }
+        },
+        {
+            "name": "stm32f072-pinned",
+            "inherits": "stm32f072",
+            "binaryDir": "${sourceDir}/build/stm32f072-pinned",
+            "environment": {
+                "ARM_GCC_ROOT": "$env{HOME}/.cache/cmake-toolchains/arm-gnu-toolchain-14.2.rel1-arm-none-eabi"
+            }
+        },
+        {
+            "name": "x86",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/x86",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-linux-gnu.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "PLATFORM": "x86"     
+            }
+        },
+        {
+            "name": "stm32f407",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/stm32f407",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CROSSCOMPILING_EMULATOR":
+                    "${sourceDir}/run-renode-test.sh;${sourceDir}/platform_stm32f407/firmware_tests.robot",
+                "PLATFORM": "stm32f407",
+                "ARM_CPU": "cortex-m4"     
+            },
+            "environment": {
+                "ARM_GCC_ROOT": ""
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "stm32f072",
+            "configurePreset": "stm32f072"
+        },
+        {
+            "name": "stm32f072-pinned",
+            "configurePreset": "stm32f072-pinned"
+        },
+        {
+            "name": "x86",
+            "configurePreset": "x86"
+        },
+        {
+            "name": "stm32f407",
+            "configurePreset": "stm32f407"
+        }
+    ],
+    "testPresets": [
+    {
+        "name": "x86",
+        "configurePreset": "x86",
+        "output": {
+            "verbosity": "verbose"
+        }
+    },
+    {
+        "name": "stm32f072",
+        "configurePreset": "stm32f072",
+        "output": {
+            "verbosity": "verbose"
+        }
+    },
+    {
+        "name": "stm32f072-pinned",
+        "configurePreset": "stm32f072-pinned",
+        "output": {
+            "verbosity": "verbose"
+        }
+    },
+    {
+        "name": "stm32f407",
+        "configurePreset": "stm32f407",
+        "output": {
+            "verbosity": "verbose"
+        }
+    }
+    ],
+    "packagePresets": [
+    {
+        "name": "stm32f072-pinned",
+        "configurePreset": "stm32f072-pinned",
+        "generators": ["TGZ"]
+    }
+    ],
+    "workflowPresets": [
+    {
+        "name": "x86",
+        "steps": [
+            { "type": "configure", "name": "x86" },
+            { "type": "build", "name": "x86" },
+            { "type": "test", "name": "x86" }
+        ]
+    },
+    {
+        "name": "stm32f072",
+        "steps": [
+            { "type": "configure", "name": "stm32f072" },
+            { "type": "build", "name": "stm32f072" },
+            { "type": "test", "name": "stm32f072" }
+        ]
+    },
+    {
+        "name": "stm32f072-release",
+        "steps": [
+            {
+                "type": "configure",
+                "name": "stm32f072-pinned"
+            },
+            {
+                "type": "build",
+                "name": "stm32f072-pinned"
+            },
+            {
+                "type": "test",
+                "name": "stm32f072-pinned"
+            },
+            {
+                "type": "package",
+                "name": "stm32f072-pinned"
+            }
+        ]
+    }
+    ]
+}
