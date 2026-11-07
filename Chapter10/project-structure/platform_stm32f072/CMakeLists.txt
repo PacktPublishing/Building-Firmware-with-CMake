@@ -32,7 +32,6 @@ target_link_libraries(stm32f072_platform PRIVATE stm32f0_hal)
 add_library(platform INTERFACE)
 
 target_sources(platform INTERFACE
-    uart_configuration_test.cpp
     startup_stm32f072xb.s 
     src/syscall_stubs.c 
 )
