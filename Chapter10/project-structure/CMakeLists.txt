@@ -15,11 +15,6 @@ add_compile_options(
 add_subdirectory("platform_${PLATFORM}")
 
 add_subdirectory(
-    ${CMAKE_CURRENT_LIST_DIR}/../../CppUTest
-    ${CMAKE_CURRENT_BINARY_DIR}/CppUTest
-)
-
-add_subdirectory(
     ${CMAKE_CURRENT_LIST_DIR}/../../nanopb
     ${CMAKE_CURRENT_BINARY_DIR}/nanopb
 )
@@ -51,7 +46,7 @@ generate_wire_data(
 )
 
 add_executable(project_structure
-    main.cpp
+    app/main.cpp
 )
 
 set(map_file "${CMAKE_CURRENT_BINARY_DIR}/project_structure.map")
@@ -64,7 +59,6 @@ target_link_options(project_structure PRIVATE
 target_link_libraries(project_structure PRIVATE
     proto
     wire_data
-    CppUTest::CppUTest
     platform
 )
 
@@ -73,12 +67,11 @@ platform_add_renode_target(
     FIRMWARE_TARGET project_structure
 )
 
-enable_testing()
+include(CTest)
 
-add_test(
-    NAME cross_platform_tests
-    COMMAND project_structure
-)
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 
 find_package(Git REQUIRED)
 

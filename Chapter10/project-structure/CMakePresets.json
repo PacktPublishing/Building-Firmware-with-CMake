@@ -14,7 +14,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_CROSSCOMPILING_EMULATOR":
-                    "${sourceDir}/run-renode-test.sh;${sourceDir}/platform_stm32f072/firmware_tests.robot",
+                    "${sourceDir}/scripts/run-renode-test.sh;${sourceDir}/platform_stm32f072/firmware_tests.robot",
                 "PLATFORM": "stm32f072",
                 "ARM_CPU": "cortex-m0" 
             },
@@ -48,7 +48,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_CROSSCOMPILING_EMULATOR":
-                    "${sourceDir}/run-renode-test.sh;${sourceDir}/platform_stm32f407/firmware_tests.robot",
+                    "${sourceDir}/scripts/run-renode-test.sh;${sourceDir}/platform_stm32f407/firmware_tests.robot",
                 "PLATFORM": "stm32f407",
                 "ARM_CPU": "cortex-m4"     
             },

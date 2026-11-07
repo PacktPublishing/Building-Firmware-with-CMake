@@ -100,7 +100,7 @@ function(generate_wire_data)
     )
 
     set(GENERATOR_SCRIPT
-        ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/../generate_wire_data.py
+        ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/../scripts/generate_wire_data.py
     )
 
     message(STATUS "Wire data header will be generated at:")
