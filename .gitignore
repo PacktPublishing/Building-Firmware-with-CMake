@@ -2,3 +2,4 @@ build/
 __pycache__/
 generated/
 python-generated/
+CMakeUserPresets.json

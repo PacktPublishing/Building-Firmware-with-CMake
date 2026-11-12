@@ -62,10 +62,12 @@ target_link_libraries(project_structure PRIVATE
     platform
 )
 
-platform_add_renode_target(
-    TARGET run_in_renode
-    FIRMWARE_TARGET project_structure
-)
+if(CMAKE_CROSSCOMPILING)
+    platform_add_renode_target(
+        TARGET run_in_renode
+        FIRMWARE_TARGET project_structure
+    )
+endif()
 
 include(CTest)
 
