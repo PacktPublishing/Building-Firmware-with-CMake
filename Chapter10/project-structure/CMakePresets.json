@@ -92,26 +92,35 @@
         "name": "x86",
         "configurePreset": "x86",
         "output": {
-            "verbosity": "verbose"
+            "outputOnFailure": true
+        },
+        "execution": {
+            "noTestsAction": "error"
         }
     },
     {
         "name": "stm32f072",
         "configurePreset": "stm32f072",
         "output": {
-            "verbosity": "verbose"
-        }
-    },
-    {
-        "name": "stm32f072-pinned",
-        "configurePreset": "stm32f072-pinned",
-        "output": {
-            "verbosity": "verbose"
+            "outputOnFailure": true
+        },
+        "execution": {
+            "noTestsAction": "error"
         }
     },
     {
         "name": "stm32f407",
         "configurePreset": "stm32f407",
+        "output": {
+            "outputOnFailure": true
+        },
+        "execution": {
+            "noTestsAction": "error"
+        }
+    },
+    {
+        "name": "stm32f072-pinned",
+        "configurePreset": "stm32f072-pinned",
         "output": {
             "verbosity": "verbose"
         }
@@ -151,6 +160,14 @@
             { "type": "configure", "name": "stm32f072" },
             { "type": "build", "name": "stm32f072" },
             { "type": "test", "name": "stm32f072" }
+        ]
+    },
+    {
+        "name": "stm32f407",
+        "steps": [
+            { "type": "configure", "name": "stm32f407" },
+            { "type": "build", "name": "stm32f407" },
+            { "type": "test", "name": "stm32f407" }
         ]
     },
     {
